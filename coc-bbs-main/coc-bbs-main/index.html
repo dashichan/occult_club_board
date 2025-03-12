@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[非公式]オカルト研究部 裏</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container index-container">
+      <h1>[非公式]オカルト研究部 裏</h1>
+
+      <!-- 掲示板ルール -->
+      <div class="rules">
+        <h2>利用規約</h2>
+        <ul>
+          <li><strong>公序良俗に反する内容の投稿は禁止</strong>  
+            　他のユーザーに不快感を与えるような投稿はお控えください。</li>
+          <li><strong>誹謗中傷や過度な批判は禁止</strong>  
+            　他のユーザーや個人に対する誹謗中傷、過度な批判は絶対におやめください。</li>
+          <li><strong>悪戯や迷惑行為は禁止</strong>  
+            　掲示板を悪戯や不正利用する行為はご遠慮ください。</li>
+          <li><strong>URLの直貼りは禁止</strong>  
+            　無断でURLをそのまま貼る行為は禁止します。必要な場合はコメント内での適切な表現をお願いします。</li>
+          <li><strong>匿名での利用を推奨します</strong>  
+            　利用者同士のトラブルを避けるため、匿名での投稿を推奨しています。<a class="secret-link" href="secret/first.html">白</a></li>
+        </ul>
+      </div>
+
+      <div id="threadList"></div>
+    </div>
+
+    <script>
+      async function loadThreads() {
+        const threadList = document.getElementById("threadList");
+        threadList.innerHTML = "";
+      
+        let threadIndex = 1;
+        let threadsLoaded = false;
+      
+        while (true) {
+          const fileName = `data/thread${threadIndex}.json`;
+      
+          try {
+            const response = await fetch(fileName);
+            if (!response.ok) break; // ファイルが存在しなかったら終了
+      
+            const thread = await response.json();
+            const latestPosts = thread.posts.slice(-3) // 最新3件取得
+              .map((post, index) => `
+                <div class="post">
+                  <div class="post-header">
+                    <span class="post-number">${
+                      thread.posts.length > 3 
+                        ? thread.posts.length - 3 + index + 1 
+                        : index + 1
+                    }</span>
+                    <span class="post-name">${post.user || "名無しさん"}</span>
+                    <span class="post-date">${post.date}</span>
+                  </div>
+                  <div class="post-content">${post.content}</div>
+                </div>
+              `)
+              .join("");
+      
+            const div = document.createElement("div");
+            div.className = "thread-box";
+            div.innerHTML = `
+              <h2><a href="thread.html?file=${fileName}" class="thread-link">${thread.threadName}</a></h2>
+              <div class="post-area">
+                ${latestPosts}
+              </div>
+            `;
+      
+            threadList.appendChild(div);
+            threadIndex++;
+            threadsLoaded = true;
+      
+          } catch {
+            break; // 例外発生時もループ終了
+          }
+        }
+      
+        if (!threadsLoaded) {
+          threadList.innerHTML = "<p>スレッドがありません。</p>";
+        }
+      }
+      loadThreads();    
+    </script>
+  </body>
+</html>

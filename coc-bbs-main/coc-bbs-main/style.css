@@ -1,0 +1,239 @@
+body {
+  background-color: #888;
+  font-family: sans-serif;
+}
+
+.index-container {
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.index-container h1 {
+  margin: 20px 0 0;
+}
+
+.thread-container {
+  width: 80%;
+  max-width: 1000px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.thread-container h1 {
+  font-size: 24px;
+  background-color: black;
+}
+
+/* 利用規約 */
+.rules {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
+.rules ul {
+  list-style: none; /* 黒い点を削除 */
+  padding: 0;
+  margin: 0;
+}
+
+.rules li {
+  margin-bottom: 10px;
+}
+
+.rules li strong {
+  display: block; /* 太字の後で改行 */
+  margin-bottom: 5px; /* 間隔を追加 */
+}
+
+/* [掲示板に戻る] のデザイン */
+.back-link {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.back-link a {
+  color: blue;
+  text-decoration: none;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
+
+/* スレッドタイトルのデザイン */
+.thread-title {
+  font-size: 24px;
+  background-color: black;
+  color: red;
+  padding: 10px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.thread-borderline {
+  border-bottom: 1px solid #888;
+}
+
+/* 投稿デザイン */
+.post {
+  border-bottom: 1px dashed #ccc;
+  padding: 10px;
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
+.post-header {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.post-number {
+  color: black;
+}
+
+.post-name {
+  font-weight: bold;
+  color: blue;
+}
+
+.post-date {
+  font-size: 12px;
+  color: gray;
+  margin-left: 10px;
+}
+
+.post-content {
+  white-space: pre-line;
+}
+
+/* 書き込みフォームのデザイン */
+.post-form {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #888;
+}
+
+/* 名前入力とボタンを横並び */
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* 要素間の間隔 */
+  margin-bottom: 10px;
+}
+
+/* 書き込むボタン（2ch風） */
+.write-button {
+  background-color: #dcdcdc; /* 灰色 */
+  border: 1px solid #888; /* 枠線 */
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: not-allowed;
+  color: black;
+  font-weight: bold;
+}
+
+/* 名前入力欄（幅を調整） */
+.name-input {
+  width: 150px; /* 適切な幅に調整 */
+  padding: 5px;
+  border: 1px solid #888;
+  font-size: 14px;
+}
+
+/* 投稿内容の入力欄（テキストエリア）のデザイン */
+.message-input {
+  width: 100%; /* 幅は100%のまま */
+  padding: 5px;
+  border: 1px solid #888;
+  font-size: 14px;
+  background-color: white;
+  border-radius: 0; /* 角を丸くしない（2ch風） */
+  outline: none; /* フォーカス時の青い枠を消す */
+}
+
+/* フォーカス時のデザイン */
+.message-input:focus {
+  border: 2px solid black; /* 枠線を黒くする */
+}
+
+/* スレッド一覧のスレッドボックス */
+.thread-box {
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #888;
+}
+
+/* スレッドタイトル */
+.thread-box h2 {
+  font-size: 20px;
+  background-color: black;
+  color: red;
+  padding: 10px;
+  margin: 0;
+}
+
+.thread-box .thread-link {
+  color: red;
+  text-decoration: none;
+}
+
+.thread-box .thread-link:hover {
+  text-decoration: underline;
+}
+
+/* 投稿デザイン（thread.htmlと統一） */
+.thread-box .post-area {
+  background-color: white;
+  padding: 15px;
+}
+
+.thread-box .post {
+  border-bottom: 1px dashed #ccc;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.thread-box .post:last-child {
+  border-bottom: none;
+}
+
+.thread-box .post-header {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.thread-box .post-number {
+  color: black;
+}
+
+.thread-box .post-name {
+  font-weight: bold;
+  color: blue;
+}
+
+.thread-box .post-date {
+  font-size: 12px;
+  color: gray;
+  margin-left: 10px;
+}
+
+.thread-box .post-content {
+  white-space: pre-line;
+}
+
+.secret-link {
+  color: white;
+  text-decoration: none;
+  margin-left: auto;
+}

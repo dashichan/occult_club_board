@@ -1,0 +1,11 @@
+{
+  "threadName": "雑談スレ",
+  "posts": [
+    { "user": "Alice", "content": "こんにちは！", "date": "2025-03-10 12:00" },
+    { "user": "Bob", "content": "どうも！", "date": "2025-03-10 12:05" },
+    { "user": "Charlie", "content": "初めまして！", "date": "2025-03-10 12:10" },
+    { "user": "Alice2", "content": "ここには", "date": "2025-03-10 12:00" },
+    { "user": "Bob2", "content": "うしろの", "date": "2025-03-10 12:05" },
+    { "user": "Charlie2", "content": "3つが表示されるよ！", "date": "2025-03-10 12:10" }
+  ]
+}
